@@ -26,12 +26,13 @@ class Manager < Nhanvien
     def salary_up(money)
         super(money)
     end
-    def calculate_salary(luong_co_ban, he_so_phu_cap)
+
+    def calculate_salary()
        @luong_co_ban + @luong_co_ban * @he_so_phu_cap
     end
     def manage_employee()
         @danh_sach_nhan_vien_duoi_quyen.each do |nhan_vien|
-            puts nhan_vien.ten_nhan_vien
+            puts nhan_vien
         end
     end
 end
@@ -44,8 +45,8 @@ class Developer < Nhanvien
         @muc_luong_theo_gio = muc_luong_theo_gio
     end
 
-    def calculate_salary(so_gio_lam_viec_trong_thang, muc_luong_theo_gio)
-       @luong_co_ban + so_gio_lam_viec_trong_thang * muc_luong_theo_gio
+    def calculate_salary()
+       @luong_co_ban + @so_gio_lam_viec_trong_thang * @muc_luong_theo_gio
     end
 end
 
@@ -56,8 +57,8 @@ class Sales < Nhanvien
         @doanh_so_trong_thang = doanh_so_trong_thang
         @ti_le_hoa_hong = ti_le_hoa_hong
     end
-    def calculate_salary(doanh_so_trong_thang, ti_le_hoa_hong)
-        @luong_co_ban + doanh_so_trong_thang * ti_le_hoa_hong
+    def calculate_salary()
+        @luong_co_ban + @doanh_so_trong_thang * @ti_le_hoa_hong
     end
 
     def salary_up(money)
@@ -70,3 +71,8 @@ b = Developer.new("Vohaidang", 22, "Nam", "Ha Tinh", "0886073802", 'haidang.vobu
 c = Developer.new("Vohaidang1", 22, "Nam", "Ha Tinh", "0886073802", 'haidang.vobui@gmail1234.com,', 10000000, 100, 100000)
 d = Sales.new("Vohaidang2", 22, "Nam", "Ha Tinh", "0886073802", 'haidang.vobui@gmail12345.com', 10000000, 100, 100000)
 e = Sales.new("Vohaidang3", 22, "Nam", "Ha Tinh", "0886073802", 'haidang.vobui@gmail123456.com', 11000000, 100, 100000)
+
+A = [a, b, c, d, e].sum{|nhanvien| nhanvien.calculate_salary}
+a.salary_up(1000000)
+puts a.calculate_salary
+puts a.manage_employee
