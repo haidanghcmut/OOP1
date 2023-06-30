@@ -1,3 +1,4 @@
+//File dang.rb
 Viết một chương trình quản lý nhân viên cho một công ty. Nhân viên sẽ có các thuộc tính: tên nhân viên, tuổi, giới tính, địa chỉ, số điện thoại, email, mức lương cơ bản.
 
 Công ty có 3 cấp bậc bao gồm: Manager, Developer, Sales.
